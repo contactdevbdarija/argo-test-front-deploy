@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular-demo-service
+  name: hello-echo-service
 spec:
   selector:
-    app: angular-demo
+    app: hello-echo
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 5678
   type: NodePort

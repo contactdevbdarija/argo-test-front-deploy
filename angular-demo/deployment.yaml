@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: angular-demo
-  labels:
-    app: angular-demo
+  name: hello-echo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: angular-demo
+      app: hello-echo
   template:
     metadata:
       labels:
-        app: angular-demo
+        app: hello-echo
     spec:
       containers:
-      - name: angular-demo
-        image: nginxdemos/hello
+      - name: http-echo
+        image: hashicorp/http-echo:0.2.3
+        args:
+          - "-text=Hello World from Argo CD"
         ports:
-        - containerPort: 80
+        - containerPort: 5678
